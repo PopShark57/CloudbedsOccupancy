@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r pip install httpx airtop requests
+          pip install httpx airtop requests
 
       - name: Run Airtable sync
         env:
@@ -28,4 +28,4 @@ jobs:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
           AIRTABLE_TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
         run: |
-          python3.13 cloudbeds_occupancy_sync.py
+          python3 cloudbeds_occupancy_sync.py
