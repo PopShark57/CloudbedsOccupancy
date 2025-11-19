@@ -1,13 +1,19 @@
-name: Airtable occupancy sync
+name: Cloudbeds → Airtable occupancy sync
 
 on:
   schedule:
-    - cron: "7 * * * *"    # every hour at minute 7 (avoid :00 high load)
-  workflow_dispatch:       # lets you run it manually from the Actions tab
+    - cron: "7 * * * *"  # every hour at minute 7
+  workflow_dispatch:
 
 jobs:
   run-sync:
     runs-on: ubuntu-latest
+
+    env:
+      CLOUDBEDS_API_KEY: ${{ secrets.CLOUDBEDS_API_KEY }}
+      AIRTABLE_API_KEY:  ${{ secrets.AIRTABLE_API_KEY }}
+      AIRTABLE_BASE_ID:  ${{ secrets.AIRTABLE_BASE_ID }}
+      AIRTABLE_TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
 
     steps:
       - name: Checkout repo
@@ -16,16 +22,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.12"   # or whatever you’re using
+          python-version: "3.12"
 
       - name: Install dependencies
         run: |
           pip install httpx airtop requests
 
-      - name: Run Airtable sync
-        env:
-          AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-          AIRTABLE_TABLE_ID: ${{ secrets.AIRTABLE_TABLE_ID }}
+      - name: Run occupancy sync
         run: |
-          python3 cloudbeds_occupancy_sync.py
+          python cloudbeds_occupancy_sync.py
