@@ -20,7 +20,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
+          pip install -r os, asyncio, json, logging, httpx, typing, airtop, requests
 
       - name: Run Airtable sync
         env:
