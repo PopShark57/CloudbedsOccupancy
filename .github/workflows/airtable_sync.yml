@@ -2,7 +2,7 @@ name: Cloudbeds → Airtable occupancy sync
 
 on:
   schedule:
-    - cron: "7 * * * *"  # every hour at minute 7
+    - cron: "*/15 * * * *"  # every 15 minutes
   workflow_dispatch:
 
 jobs:
