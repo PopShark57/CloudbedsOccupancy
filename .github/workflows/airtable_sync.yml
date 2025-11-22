@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      AIRTOP_API_KEY: "57558bfdc2077ce7.NZQNJZu7KXfLkrSmzwcYC8HvDoVPtmSUq6Oq9vhzna"
+      AIRTOP_API_KEY: "5ea5dc00641b3bd7.rpKfsOBOb5HDfdjf5KiNWAD4x11LVa88v6QxcYehdO"
       AIRTABLE_API_KEY:  "patPL1U7m1KTXz0Wh.0efce3ccf0de0ecfc66ce57f5521d83e2936d05bce9956db998d36647c8d910e"
       AIRTABLE_BASE_ID:  "appqstjfFNrdvbxIE"
       AIRTABLE_TABLE_ID: "tblOaAgG187IfNGwI"
